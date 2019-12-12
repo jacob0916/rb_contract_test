@@ -1,8 +1,8 @@
-const RbTest        = artifacts.require('RbTest');
-const BN            = web3.utils.BN;
-const web3ext       = require('./web3ext');
-const Web3          = require('web3');
-const murkyEpoch    = new BN("2626906");
+const RbTest = artifacts.require('RbTest');
+const BN = web3.utils.BN;
+const web3ext = require('./web3ext');
+const Web3 = require('web3');
+const murkyEpoch = new BN("2626906");
 let RbTestInst;
 let myWeb3;
 
@@ -38,7 +38,7 @@ contract('Test RbTest', async (accounts) => {
 
             let epochIdApi = myWeb3.pos.getEpochID();
             //console.log("epochID by API:" + epochId.toString());
-            assert.equal(epochIdSc,epochIdApi);
+            assert.equal(epochIdSc, epochIdApi);
         } catch (err) {
             assert.fail(err);
         }
@@ -56,10 +56,10 @@ contract('Test RbTest', async (accounts) => {
             ret = await RbTestInst.getRandomByBlockTime(bnTime);
             console.log("RandomNumber:" + ret.toString());
 
-            console.log(web3.utils.toHex(new BN(ret.toString())));
+            console.log("RandomNumber(hex):" + web3.utils.toHex(new BN(ret.toString())));
 
-            let rndNumberByAPI = await myWeb3.pos.getRandom(Number(bnEpochId.toString()),Number('-1'));
-            console.log("rndNumberByAPI:"+rndNumberByAPI);
+            let rndNumberByAPI = await myWeb3.pos.getRandom(Number(bnEpochId.toString()), Number('-1'));
+            console.log("rndNumberByAPI:" + rndNumberByAPI);
             assert.equal(web3.utils.toHex(new BN(ret.toString())), rndNumberByAPI);
         } catch (err) {
             assert.fail(err);
@@ -77,10 +77,10 @@ contract('Test RbTest', async (accounts) => {
             ret = await RbTestInst.getRandomByEpochId(bnEpochId);
             console.log("RandomNumber:" + ret.toString());
 
-            console.log(web3.utils.toHex(new BN(ret.toString())));
+            console.log("RandomNumber(hex):" + web3.utils.toHex(new BN(ret.toString())));
 
-            let rndNumberByAPI = await myWeb3.pos.getRandom(Number(bnEpochId.toString()),Number('-1'));
-            console.log("rndNumberByAPI:"+rndNumberByAPI);
+            let rndNumberByAPI = await myWeb3.pos.getRandom(Number(bnEpochId.toString()), Number('-1'));
+            console.log("rndNumberByAPI:" + rndNumberByAPI);
 
             assert.equal(web3.utils.toHex(new BN(ret.toString())), rndNumberByAPI);
         } catch (err) {
@@ -99,7 +99,7 @@ contract('Test RbTest', async (accounts) => {
             bnEpochId = bnEpochId.add(new BN(2));
             ret = await RbTestInst.getRandomByEpochId(bnEpochId);
             console.log("RandomNumber:" + ret.toString());
-            console.log(web3.utils.toHex(new BN(ret.toString())));
+            console.log("RandomNumber(hex):" + web3.utils.toHex(new BN(ret.toString())));
             assert.equal(web3.utils.toHex(new BN(ret.toString())), '0x0');
 
         } catch (err) {
@@ -110,7 +110,7 @@ contract('Test RbTest', async (accounts) => {
         try {
             let ret = await RbTestInst.getRandomByEpochId(murkyEpoch);
             console.log("RandomNumber:" + ret.toString());
-            console.log(web3.utils.toHex(new BN(ret.toString())));
+            console.log("RandomNumber(hex):" + web3.utils.toHex(new BN(ret.toString())));
         } catch (err) {
             assert.fail(err);
         }
