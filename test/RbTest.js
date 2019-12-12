@@ -88,6 +88,24 @@ contract('Test RbTest', async (accounts) => {
         }
     });
 
+    it('getRandomByEpochId shoudl return 0x0', async () => {
+        try {
+            let now = Math.floor(Date.now() / 1000);
+            //console.log("timestamp:" + now);
+            let ret = await RbTestInst.getEpochId(now);
+            console.log("epochID:" + ret.toString());
+
+            let bnEpochId = new BN(ret.toString());
+            bnEpochId = bnEpochId.add(new BN(2));
+            ret = await RbTestInst.getRandomByEpochId(bnEpochId);
+            console.log("RandomNumber:" + ret.toString());
+            console.log(web3.utils.toHex(new BN(ret.toString())));
+            assert.equal(web3.utils.toHex(new BN(ret.toString())), '0x0');
+
+        } catch (err) {
+            assert.fail(err);
+        }
+    });
     it('getRandomByEpochId murkeyEpoch', async () => {
         try {
             let ret = await RbTestInst.getRandomByEpochId(murkyEpoch);
