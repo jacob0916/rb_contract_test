@@ -1,0 +1,357 @@
+{
+  "contractName": "RbTest",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "r",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getR",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.4.25+commit.59dbf8f1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"r\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getR\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/jacob/wanchain/rbtest/contracts/RbTest.sol\":\"RbTest\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/jacob/wanchain/rbtest/contracts/RbTest.sol\":{\"keccak256\":\"0x1ec43a67b304b374b446fbf6196daac9c73425462b1052383ddd51e0506e1224\",\"urls\":[\"bzzr://da950101cc0cfc4ef041c00e52629809d539f4bff57bdf4511f6e229779a2c6d\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060d98061001f6000396000f3006080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680636c8ae38c14604e578063f637b632146076575b600080fd5b348015605957600080fd5b506060609e565b6040518082815260200191505060405180910390f35b348015608157600080fd5b50608860a4565b6040518082815260200191505060405180910390f35b60005481565b600080549050905600a165627a7a723058205ac3bb517e669d7763c67ac5cf7966d8188fd13565520e3bec33ada0e358f3500029",
+  "deployedBytecode": "0x6080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680636c8ae38c14604e578063f637b632146076575b600080fd5b348015605957600080fd5b506060609e565b6040518082815260200191505060405180910390f35b348015608157600080fd5b50608860a4565b6040518082815260200191505060405180910390f35b60005481565b600080549050905600a165627a7a723058205ac3bb517e669d7763c67ac5cf7966d8188fd13565520e3bec33ada0e358f3500029",
+  "sourceMap": "305:115:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;305:115:1;;;;;;;",
+  "deployedSourceMap": "305:115:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;327:16;;8:9:-1;5:2;;;30:1;27;20:12;5:2;327:16:1;;;;;;;;;;;;;;;;;;;;;;;349:69;;8:9:-1;5:2;;;30:1;27;20:12;5:2;349:69:1;;;;;;;;;;;;;;;;;;;;;;;327:16;;;;:::o;349:69::-;385:7;410:1;;403:8;;349:69;:::o",
+  "source": "pragma solidity ^0.4.24;\n\n//interface RandomBeacon {\n//    function getRandomByEpochId(uint256 epochId) external view returns(uint256);\n//    function getRandomByBlockTime(uint256 blockTime) external view returns(uint256);\n//    function getEpochId(uint256 blockTime) external view returns(uint256);\n//}\n\ncontract  RbTest{\n    uint256 public r;\n    function getR() public view returns(uint256){\n        return r;\n    }\n}\n\n//contract RbTest {\n////    uint256 public r;\n////    uint256 public r1;\n////    uint256 public r2;\n////    uint256 public epochID;\n//\n//    function getRandomByEpochId(uint256 epochId) public view returns(uint256) {\n////        uint256 p = 0;\n////        uint len = 32;\n////        uint ptr;\n////        bytes4 sig = bytes4(keccak256(\"getRandomByEpochId(uint256\"));\n////        assembly {\n////            mstore(0, 0x7f07b9ab00000000000000000000000000000000000000000000000000000000)\n////            calldatacopy(4, 4, 32)\n////            if not(iszero(staticcall(gas, 0x262, 0, 0x24, p, 0x20))) {\n////                p := mload(0)\n////            }\n////        }\n////        return p;\n////        assembly {\n////            let ptr := mload(0x40)\n////            calldatacopy(ptr, 0, calldatasize)\n////            let result := delegatecall(gas, 0x262, ptr, calldatasize, 0, 0)\n////            let size := returndatasize\n////            returndatacopy(ptr, 0, size)\n////\n////            switch result\n////            case 0 { revert(ptr, size) }\n////            default { return(ptr, size) }\n////        }\n//        return 0;\n//    }\n////    function getRandomByBlockTime(uint256 blockTime) public view returns(uint256) {\n////        // RandomBeacon rb = RandomBeacon(0x0000000000000000000000000000000000000262);\n////        // return rb.getRandomByBlockTime(blockTime);\n////        uint256 p = 0;\n////        assembly {\n////            mstore(0, 0xdf39683800000000000000000000000000000000000000000000000000000000)\n////            calldatacopy(4, 4, 32)\n////            if not(iszero(staticcall(gas, 0x262, 0, 0x24, p, 0x20))) {\n////                p := mload(0)\n////            }\n////        }\n////        return p;\n////    }\n////    function getEpochId(uint256 blockTime) public view returns(uint256) {\n////        // RandomBeacon rb = RandomBeacon(0x0000000000000000000000000000000000000262);\n////        // return rb.getEpochId(blockTime);\n////        uint256 p = 0;\n////        assembly {\n////            mstore(0, 0x5303548b00000000000000000000000000000000000000000000000000000000)\n////            calldatacopy(4, 4, 32)\n////            if not(iszero(staticcall(gas, 0x262, 0, 0x24, p, 0x20))) {\n////                p := mload(0)\n////            }\n////        }\n////        return p;\n////    }\n////\n////    function callGetRandomByEpochId(uint256 e) public view returns(uint256) {\n////        return getRandomByEpochId(e);\n////    }\n////\n////    function sendRandomByBlockTime(uint256 blockTime) public {\n////        r = getRandomByBlockTime(blockTime);\n////        epochID = getEpochId(blockTime);\n////        r1 = callGetRandomByEpochId(epochID);\n////    }\n//}\n\n",
+  "sourcePath": "/home/jacob/wanchain/rbtest/contracts/RbTest.sol",
+  "ast": {
+    "absolutePath": "/home/jacob/wanchain/rbtest/contracts/RbTest.sol",
+    "exportedSymbols": {
+      "RbTest": [
+        69
+      ]
+    },
+    "id": 70,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 58,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 69,
+        "linearizedBaseContracts": [
+          69
+        ],
+        "name": "RbTest",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 60,
+            "name": "r",
+            "nodeType": "VariableDeclaration",
+            "scope": 69,
+            "src": "327:16:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 59,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "327:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 67,
+              "nodeType": "Block",
+              "src": "393:25:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 65,
+                    "name": "r",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 60,
+                    "src": "410:1:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 64,
+                  "id": 66,
+                  "nodeType": "Return",
+                  "src": "403:8:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 68,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getR",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 61,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "362:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 64,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 63,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 68,
+                  "src": "385:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 62,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "385:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "384:9:1"
+            },
+            "scope": 69,
+            "src": "349:69:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 70,
+        "src": "305:115:1"
+      }
+    ],
+    "src": "0:3093:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/jacob/wanchain/rbtest/contracts/RbTest.sol",
+    "exportedSymbols": {
+      "RbTest": [
+        69
+      ]
+    },
+    "id": 70,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 58,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 69,
+        "linearizedBaseContracts": [
+          69
+        ],
+        "name": "RbTest",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 60,
+            "name": "r",
+            "nodeType": "VariableDeclaration",
+            "scope": 69,
+            "src": "327:16:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 59,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "327:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 67,
+              "nodeType": "Block",
+              "src": "393:25:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 65,
+                    "name": "r",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 60,
+                    "src": "410:1:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 64,
+                  "id": 66,
+                  "nodeType": "Return",
+                  "src": "403:8:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 68,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getR",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 61,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "362:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 64,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 63,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 68,
+                  "src": "385:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 62,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "385:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "384:9:1"
+            },
+            "scope": 69,
+            "src": "349:69:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 70,
+        "src": "305:115:1"
+      }
+    ],
+    "src": "0:3093:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.25+commit.59dbf8f1.Emscripten.clang"
+  },
+  "networks": {
+    "4": {
+      "events": {},
+      "links": {},
+      "address": "0x7ba367DE3f2d4a7F2a09Df6Be6D453417D37BC51",
+      "transactionHash": "0x0a7634e562e5f2236104cffa76d392c330321697e4c5cbfb3a22a0defa5f5b0a"
+    }
+  },
+  "schemaVersion": "3.0.19",
+  "updatedAt": "2019-12-11T12:44:36.408Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
