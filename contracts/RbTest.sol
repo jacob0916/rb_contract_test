@@ -1,6 +1,6 @@
 pragma solidity ^0.4.24;
 contract RbTest {
-    function getRandomByEpochId(uint256 epochId) public view returns(uint256) {
+    function getRandomNumberByEpochId(uint256 epochId) public view returns(uint256) {
         assembly {
             let ptr := mload(0x40)
             calldatacopy(ptr, 0, calldatasize)
@@ -13,7 +13,7 @@ contract RbTest {
             default { return(ptr, size) }
         }
     }
-    function getRandomByBlockTime(uint256 blockTime) public view returns(uint256) {
+    function getRandomNumberByTimestamp(uint256 timestamp) public view returns(uint256) {
         assembly {
             let ptr := mload(0x40)
             calldatacopy(ptr, 0, calldatasize)
