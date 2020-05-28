@@ -1,4 +1,5 @@
-1. npm install -save web3@1.0.0-beta.35
+1. npm install -save web3@0.20
 
 
-web3.js 1.0.0-beta.36 bug: Returned values aren't valid, did it run Out of Gas?
+0.20中的_extend方法可用。
+
